@@ -8,14 +8,15 @@
     <title>Search</title>
 </head>
 <body>
-    <div id="top">
-        <a href="advanced.html">Advanced</a>
-        <a href="image.html">Image</a>
+    <div class="navbar">
+        <a class="navbar" href="advanced.html">Advanced Search</a>
+        <a class="navbar" href="image.html">Image Search</a>
     </div>
     <div id="search">
-        <form action="https://www.google.com/search">
+        <form action="https://www.google.com/search" method="GET">
             <input type="text" name="q">
             <input type="submit" value="Google Search">
+            <input type="submit" name="btnI" value="I'm Feeling Lucky">
         </form>
     </div>
 </body>
