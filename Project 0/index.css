@@ -1,0 +1,42 @@
+#top {
+    float: right;
+    margin-right: 5px;
+}
+
+
+@media (max-width: 800px) {
+    input[type="text"] {
+        width: 60vw;
+        padding-inline: 20px;
+    }
+  }
+  
+@media (min-width: 800px) {
+    input[type="text"] {
+        width: 480px;
+        padding-inline: 20px;
+    }
+  }
+
+input {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: Verdana, sans-serif;
+}
+
+input[type="text"] {
+    border-radius: 30px;
+    height: 34px;
+    font-size: 16px;
+}
+
+input[type="submit"] {
+    margin-top: 40px;
+    min-width: 54px;
+    height: 36px;
+    border-radius: 4px;
+    font-size: 14px;
+
+}
