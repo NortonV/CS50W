@@ -6,21 +6,34 @@ body {
     float: right;
     margin-right: 5px;
     color: white;
+    text-decoration: none;
 
+}
+
+.navbar:hover {
+    text-decoration: underline;
 }
 
 @media (max-width: 800px) {
     input[type="text"] {
-        width: 60vw;
-        padding-inline: 20px;
+        width: 80vw; 
     }
 }
   
 @media (min-width: 800px) {
     input[type="text"] {
-        width: 480px;
-        padding-inline: 20px;
+        width: 650px;
     }
+}
+
+img {
+    width: 300px;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    max-width: 80%;
+    height: auto;
 }
 
 input {
@@ -30,6 +43,7 @@ input {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    display: table; text-align: center;
     
     font-family: Verdana, sans-serif;
 }
@@ -40,6 +54,11 @@ input[type="text"] {
     border-radius: 30px;
     height: 34px;
     font-size: 16px;
+    padding-inline: 20px;
+}
+
+input[type="text"]:focus, input[type="text"]:hover{
+    background-color:#303134;
 }
 
 input[type="submit"] {
@@ -50,6 +69,10 @@ input[type="submit"] {
     height: 36px;
     border-radius: 4px;
     font-size: 14px;
+}
+
+input[type="submit"]:hover {
+    border: 1px solid #e8eaed;
 }
 
 input[name="btnI"] {

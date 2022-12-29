@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="styles.css">
     <title>Search</title>
 </head>
 <body>
@@ -12,9 +12,13 @@
         <a class="navbar" href="advanced.html">Advanced Search</a>
         <a class="navbar" href="image.html">Image Search</a>
     </div>
+    <br>
     <div id="search">
+        <div id="center">
+            <img src="Assets/logo.png" alt="Google logo">
+        </div>
         <form action="https://www.google.com/search" method="GET">
-            <input type="text" name="q">
+            <input type="text" name="q" autocomplete="off">
             <input type="submit" value="Google Search">
             <input type="submit" name="btnI" value="I'm Feeling Lucky">
         </form>
