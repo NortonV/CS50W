@@ -1,11 +1,13 @@
 body {
     background-color: #202124;
+    color: #e8eaed
 }
 
 .navbar {
     float: right;
-    margin-right: 5px;
-    color: white;
+    margin-right: 10px;
+    margin-top: 15px;
+    color: #e8eaed;
     text-decoration: none;
 
 }
@@ -15,18 +17,31 @@ body {
 }
 
 @media (max-width: 800px) {
-    input[type="text"] {
+    #search input[type="text"] {
         width: 80vw; 
     }
 }
   
 @media (min-width: 800px) {
-    input[type="text"] {
+    #search input[type="text"] {
         width: 650px;
     }
 }
 
-img {
+@media (max-width: 1345px) {
+    #advanced input[type="text"], #hidden {
+        width: 50%;
+    }
+}
+
+@media (min-width: 1345px) {
+    #advanced input[type="text"], #hidden{
+        width: 672px;
+        
+    }
+}
+
+#search img {
     width: 300px;
     position: absolute;
     top: 35%;
@@ -36,32 +51,72 @@ img {
     height: auto;
 }
 
+#advanced img {
+    width: 80px;
+    margin-bottom: 30px;
+    margin-left: 15px
+}
+
+#advanced form {
+    margin-left: 35px;
+}
+
 input {
     color:#e8eaed;
+    font-family: Verdana, sans-serif;
+}
+
+#search input {
     position: absolute;
-    
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    display: table; text-align: center;
-    
-    font-family: Verdana, sans-serif;
+}
+
+#advanced input {
+
 }
 
 input[type="text"] {
     background-color: transparent;
     border: 1px solid #e8eaed;
-    border-radius: 30px;
+}
+
+#search input[type="text"] {
     height: 34px;
     font-size: 16px;
+    border-radius: 30px;
     padding-inline: 20px;
 }
 
-input[type="text"]:focus, input[type="text"]:hover{
+#advanced input[type="text"] {
+    display: inline-block;
+    margin-left: 10px;
+    background-color: #202124;
+    border: 1px solid #5f6368;
+    color: #bdc1c6;
+    height: 30px;
+    padding-inline: 5px;
+}
+
+#hidden {
+    margin-left: -110px;
+}
+
+#search input[type="text"]:focus, #search input[type="text"]:hover{
     background-color:#303134;
 }
 
+#advanced input[type="text"]:active {
+    /*border-color: #8AB4F8;*/
+    border: 1px solid aqua;
+}
+
 input[type="submit"] {
+
+}
+
+#search input[type="submit"] {
     background-color: #303134;
     border: 1px solid #303134;
     margin-top: 40px;
@@ -71,14 +126,62 @@ input[type="submit"] {
     font-size: 14px;
 }
 
-input[type="submit"]:hover {
+#advanced input[type="submit"] {
+    display: absolute;
+    height: 30px;
+    min-width: 120px;
+    background-color: #8ab4f8;
+    border: 2px outset;
+    border-color: #8ab4f8;
+    color: #202124;
+    ;
+}
+
+#search input[type="submit"]:hover {
     border: 1px solid #e8eaed;
 }
 
-input[name="btnI"] {
+#search input[name="btnI"] {
     margin-left: 70px;
 }
 
-input[value="Google Search"] {
+#search input[value="Google Search"] {
     margin-left: -70px;
+}
+
+h1 {
+    font-family: arial, sans-serif;
+    font-weight: normal;
+    font-size: 25px;
+    color: #f28b82;
+    margin-left: 35px;
+    margin-bottom: 35px;
+}
+
+hr {
+    border: 1px, solid;
+    margin-bottom: 45px;
+}
+
+.find {
+    font-family: arial, sans-serif;
+    font-weight: normal;
+    font-size: 18px;
+    color: #bdc1c6;
+    margin-left: 35px;
+    margin-bottom: 30px;
+}
+
+label {
+    display: inline-block;
+    width: 200px;
+    text-align: left;
+    font-size: 16px;
+    color: #bdc1c6;
+    font-family: arial, sans-serif;
+    font-weight: normal;
+}
+
+.sep {
+    margin-bottom: 10px;
 }

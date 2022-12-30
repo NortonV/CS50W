@@ -4,13 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="styles.css">
     <title>Advanced Search</title>
 </head>
 <body>
-    <div id="top">
-        <a href="index.html">Google Search</a>
+    <div class="navbar">
+        <a class="navbar" href="index.html">Google Search</a>
     </div>
-    Advanced Search
+    <br>
+    <div id="advanced">
+        <img src="Assets/google_images_logo.png" alt="Google logo"><br>
+        <h1>Advanced Search</h1>
+        <hr>
+        <div class="find">Find pages with...</div>
+        <form action="https://www.google.com/search" method="GET">
+            <div class="sep"><label>all of these words: </label><input type="text" name="as_q" autocomplete="off"></div>
+            <div class="sep"><label>this exact word or phrase: </label><input type="text" name="as_epq" autocomplete="off"></div>
+            <div class="sep"><label>any of these words: </label><input type="text" name="as_oq" autocomplete="off"></div>
+            <div class="sep"><label>none of these words: </label><input type="text" name="as_eq" autocomplete="off"></div>
+            <div class="sep"><label></label><label id="hidden"></label><input type="submit" value="Advanced Search"></div>
+        </form>
+    </div>
 </body>
 </html>
