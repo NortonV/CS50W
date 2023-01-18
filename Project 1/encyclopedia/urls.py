@@ -1,6 +1,7 @@
 from django.urls import path
-
-from . import views
+from django.views.generic import RedirectView
+import random
+from . import views, util
 
 urlpatterns = [
     path("", views.index, name="index"),

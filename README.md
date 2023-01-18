@@ -1,2 +1,2 @@
 # CS50W
-These are my solutions to thw CS50W projects.
+These are my solutions to the CS50W projects.
