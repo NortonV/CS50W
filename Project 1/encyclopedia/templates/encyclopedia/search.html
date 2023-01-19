@@ -1,0 +1,21 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+    <h1>Search Results</h1>
+    The page "<span style="color: rgb(224,68,68)">{{ query }}</span>" does not exist. You can create your own article <a href="..">here</a>.<br>
+    
+        {% if results %}
+        Similar results:
+    <ul>
+        {% for result in results %}
+            <li><a href="../wiki/{{ result }}">{{ result }}</a></li>
+        {% endfor %}
+        {% endif %}
+    </ul>
+    
+
+{% endblock %}

@@ -29,3 +29,18 @@ def article(request, title):
         "file": html,
         "title": html.split("h1")[1][1:-2]
     })
+
+def search(request):
+    query = request.GET.get('q')
+    all = util.list_entries()
+    if query in all:
+        return redirect(f"/wiki/{query.lower()}")
+    else:
+        results = []
+        for i in all:
+            if query in i:
+                results.append(i)
+        return render(request, "encyclopedia/search.html", {
+        "results": results,
+        "query": query
+    })
