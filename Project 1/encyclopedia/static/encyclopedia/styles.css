@@ -13,8 +13,16 @@ h1 {
 }
 
 textarea {
-    height: 90vh;
+    height:35vw;
     width: 80%;
+}
+
+input[type="text"] {
+    width: 80%;
+}
+
+.red {
+    color: rgb(224,68,68)
 }
 
 .main {

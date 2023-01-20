@@ -22,12 +22,14 @@ def article(request, title):
         return redirect(f"/wiki/{title}")
     file = util.get_entry(title.lower())
     if not file:
-        file = util.get_entry("404")
+        return render(request, "encyclopedia/error.html", {
+        "message": "Entry not found."
+        })
     html = markdowner.convert(file)
 
     return render(request, "encyclopedia/article.html", {
         "file": html,
-        "title": html.split("h1")[1][1:-2]
+        "title": html.split("h1")[1][1:-2],
     })
 
 def search(request):
@@ -44,3 +46,18 @@ def search(request):
         "results": results,
         "query": query
     })
+
+def new(request):
+    if request.method == "GET":
+        return render(request, "encyclopedia/new.html")
+    else:
+        title = request.POST.get("title").strip()
+        content = request.POST.get("content")
+        if title.lower() in util.list_entries():
+            return render(request, "encyclopedia/error.html", {
+                "message": f"The entry {title.lower()} already exists."
+            })
+        else:
+            content = f"# {title.capitalize() if not title.isupper() else title}" + "<br>" + content
+            util.save_entry(title.lower(), content)
+            return redirect(f"/wiki/{title.lower()}")
