@@ -1,4 +1,4 @@
 # Fábi
 *[Edit](/edit/fábi)*
 
-10 éves róka
+10 year old fox.
