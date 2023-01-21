@@ -1,3 +1,8 @@
-# Brunno
+# Brunno 
+*[Edit](/edit/brunno)*
 
-Brunno is a small, white dog. It's favorite food is Norton flesh. It likes to go on walks in their free time.
+<div>
+Brunno is a small, white dog.
+It's favorite food is Norton flesh.
+It likes to go on walks in their free time.  
+</div>

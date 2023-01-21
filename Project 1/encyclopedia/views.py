@@ -17,20 +17,27 @@ def index(request):
     })
 
 def article(request, title):
-    if title == "random_article":
-        title = random.choice(util.list_entries())
-        return redirect(f"/wiki/{title}")
-    file = util.get_entry(title.lower())
-    if not file:
-        return render(request, "encyclopedia/error.html", {
-        "message": "Entry not found."
-        })
-    html = markdowner.convert(file)
+    if request.method == "GET":
+        file = util.get_entry(title.lower())
+        if not file:
+            return render(request, "encyclopedia/error.html", {
+            "message": "Entry not found."
+            })
+        html = markdowner.convert(file)
 
-    return render(request, "encyclopedia/article.html", {
-        "file": html,
-        "title": html.split("h1")[1][1:-2],
-    })
+        return render(request, "encyclopedia/article.html", {
+            "file": html,
+            "title": html.split("h1")[1][1:-2],
+        })
+    else:
+        content = request.POST.get("content")
+        content = f"# {title.capitalize() if not title.isupper() else title}" + "\n" + f"[Edit](/edit/{title.lower()}) " + "\n\n" + content
+        util.save_entry(title.lower(), content)
+        return redirect(f"/wiki/{title.lower()}")
+
+def random_article(request):
+    title = random.choice(util.list_entries())
+    return redirect(f"/wiki/{title}")
 
 def search(request):
     query = request.GET.get('q')
@@ -58,6 +65,14 @@ def new(request):
                 "message": f"The entry {title.lower()} already exists."
             })
         else:
-            content = f"# {title.capitalize() if not title.isupper() else title}" + "<br>" + content
+            content = f"# {title.capitalize() if not title.isupper() else title}" + "\n" + f"[Edit](/edit/{title.lower()}) " + "\n\n" + content
             util.save_entry(title.lower(), content)
             return redirect(f"/wiki/{title.lower()}")
+
+def edit(request, title):
+    file = util.get_entry(title)
+    html = markdowner.convert(file)
+    return render(request, "encyclopedia/edit.html", {
+        "file": "\n".join(file.split("\n")[3:]),
+        "title": html.split("h1")[1][1:-2],
+    })
