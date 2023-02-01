@@ -6,7 +6,9 @@ class User(AbstractUser):
     pass
 
 class Listings(models.Model):
-    pass
+    title = models.CharField(max_length=64)
+    description = models.CharField(max_length=400)
+    picture = models.ImageField()
 
 class Bids(models.Model):
     pass

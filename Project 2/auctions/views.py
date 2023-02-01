@@ -10,6 +10,7 @@ def new(request):
     if request.method == 'POST':
         title = request.POST["title"]
         description = request.POST["description"]
+        
         return render(request, "auctions/index.html")
     return render(request, "auctions/new.html")
 
