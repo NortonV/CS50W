@@ -6,6 +6,12 @@ from django.urls import reverse
 
 from .models import User
 
+def new(request):
+    if request.method == 'POST':
+        title = request.POST["title"]
+        description = request.POST["description"]
+        return render(request, "auctions/index.html")
+    return render(request, "auctions/new.html")
 
 def index(request):
     return render(request, "auctions/index.html")

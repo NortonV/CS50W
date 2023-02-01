@@ -1,0 +1,17 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+<form action="{% url 'new' %}" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        <input autofocus class="form-control" type="text" name="title" placeholder="Title">
+    </div>
+    <div class="form-group">
+        <textarea class="form-control" name="description" rows="5" placeholder="Description"></textarea>
+    </div>
+    <div class="form-group">
+        <input style="width:150px" class="form-control" name="starting-bid" type="number" step="any" min="0" placeholder="Starting bid ($)">
+    </div>
+    <input class="btn btn-primary" type="submit" value="Save">
+</form>
+{% endblock %}
