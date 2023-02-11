@@ -4,18 +4,34 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 
-from .models import User
+from .models import User, Category, Product
 
 def new(request):
     if request.method == 'POST':
         title = request.POST["title"]
         description = request.POST["description"]
-        
-        return render(request, "auctions/index.html")
-    return render(request, "auctions/new.html")
+        image_url = request.POST["image_url"]
+        price = request.POST["price"]
+        category = request.POST["category"]
+        owner = request.user
+        new_product = Product(
+            title=title,
+            description=description,
+            image_url=image_url,
+            price=price,
+            category=Category.objects.get(category_name=category),
+            owner=owner
+        )
+        new_product.save()
+        return HttpResponseRedirect(reverse(index))
+    return render(request, "auctions/new.html", {
+        "categories": Category.objects.all()
+    })
 
 def index(request):
-    return render(request, "auctions/index.html")
+    return render(request, "auctions/index.html", {
+        "listings":Product.objects.all()
+    })
 
 
 def login_view(request):
