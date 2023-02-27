@@ -30,8 +30,22 @@ def new(request):
 
 def index(request):
     return render(request, "auctions/index.html", {
-        "listings":Product.objects.all()
+        "listings":Product.objects.all(),
+        "categories": Category.objects.all()
     })
+
+def category(request):
+    if request.method == 'POST':
+        category = request.POST["category"]
+        category = Category.objects.get(category_name=category)
+        if category == "all":
+            Product.objects.all()
+        else:
+            category = Product.objects.filter(category=category)
+        return render(request, "auctions/index.html", {
+            "listings":category,
+            "categories": Category.objects.all()
+        })
 
 
 def login_view(request):

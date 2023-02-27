@@ -2,17 +2,31 @@
 
 {% block body %}
     <h2>Active Listings</h2>
-    
+        <form action="category" method="post">
+        {% csrf_token %}
+            Category:
+            <select name="category" id="category" default="{{category}}">
+                <option value="all">--</option>
+                {% for category in categories %}
+                <option value="{{ category }}">{{ category }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit" class="btn btn-warning">Sellect</button>
+        </form>
+    <br>
     <div class="row mx-3">
-        {% for listing in listings%}
+        {% for listing in listings %}
             <div class="card">
                 <img class="card-img-top" src="{{ listing.image_url }}" style="width:20vw" alt="Image not found">
                 <div class="card-body">
                     <h5 class="card-title">{{ listing.title }}</h5>
                     <p class="card-text">{{ listing.description }}</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <p class="card-text" style="color:DarkOrange; font-weight:bold">${{ listing.price }}</p>
+                    <a href="product" class="btn btn-primary">Bid</a>
                 </div>
             </div>
+        {% empty %}
+        No listings found in category.
         {% endfor %}
     </div>
     
