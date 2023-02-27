@@ -37,13 +37,12 @@ def index(request):
 def category(request):
     if request.method == 'POST':
         category = request.POST["category"]
-        category = Category.objects.get(category_name=category)
         if category == "all":
-            Product.objects.all()
+            category = Product.objects.all()
         else:
-            category = Product.objects.filter(category=category)
+            category = Product.objects.filter(category=Category.objects.get(category_name=category))
         return render(request, "auctions/index.html", {
-            "listings":category,
+            "listings": category,
             "categories": Category.objects.all()
         })
 
