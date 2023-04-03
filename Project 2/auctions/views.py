@@ -34,6 +34,12 @@ def index(request):
         "categories": Category.objects.all()
     })
 
+def listing(request, id):
+    data = Product.objects.get(pk=id)
+    return render(request, "auctions/listing.html", {
+        "data": data
+    })
+
 def category(request):
     if request.method == 'POST':
         category = request.POST["category"]

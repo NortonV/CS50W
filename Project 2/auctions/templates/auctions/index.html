@@ -22,7 +22,7 @@
                     <h5 class="card-title">{{ listing.title }}</h5>
                     <p class="card-text">{{ listing.description }}</p>
                     <p class="card-text" style="color:DarkOrange; font-weight:bold">${{ listing.price }}</p>
-                    <a href="product" class="btn btn-primary">Bid</a>
+                    <a href="{% url "listing" id=listing.id %}" class="btn btn-primary">Buy</a>
                 </div>
             </div>
         {% empty %}

@@ -1,0 +1,23 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+
+<h2>{{ data.title }}</h2>
+
+Watchlist
+
+<img src="{{ data.image_url }}" alt="Picture" style="height:40vh; margin-bottom: 10px">
+<p>{{ data.description }}</p>
+<p style="font-size: 25px; font-weight: bold">${{ data.price }}</p>
+
+Bid
+
+<div>
+<h3>Details</h3>
+<ul>
+    <li>Listed by: {{ data.owner }}</li>
+    <li>Category: {{ data.category }}</li>
+</ul>
+</div>
+
+{% endblock %}
